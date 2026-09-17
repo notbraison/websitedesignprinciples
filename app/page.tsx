@@ -54,7 +54,7 @@ export default function Home() {
                 Web Design Principles
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Forget everything you know about web design. We teach you the 7 principles that actually convert. No stock photos. No fluff. Just results.
+                The 7 principles of web design that actually convert
               </p>
               
             </div>
