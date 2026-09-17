@@ -3,11 +3,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { CheckCircle2, TrendingUp } from 'lucide-react';
+import { Accessibility, CheckCircle2, Keyboard, MessageCircle, Smartphone, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Home() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const [feedbackSent, setFeedbackSent] = useState(false);
   const sectionRefs = useRef<Record<string, IntersectionObserver | null>>({});
 
   useEffect(() => {
@@ -19,7 +20,17 @@ export default function Home() {
       }, { threshold: 0.1 });
     };
 
-    const sections = ['hero', 'scannability', 'authenticity', 'clarity', 'performance', 'results'];
+    const sections = [
+      'hero',
+      'scannability',
+      'authenticity',
+      'clarity',
+      'performance',
+      'results',
+      'accessibility',
+      'responsive',
+      'feedback',
+    ];
     sections.forEach(id => {
       const element = document.getElementById(id);
       if (element) {
@@ -47,25 +58,27 @@ export default function Home() {
           isVisible('hero') ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="max-w-4xl w-full">
+        <div className="max-w-5xl w-full">
+          <nav className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-border pb-5 mb-16" aria-label="Principle index">
+            <a href="#hero" className="text-sm font-bold tracking-wider text-foreground hover:text-accent transition-colors">
+              FIELD NOTES / WEB DESIGN
+            </a>
+            <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
+              <a href="#scannability" className="hover:text-accent transition-colors">01 Scan</a>
+              <a href="#authenticity" className="hover:text-accent transition-colors">02 Trust</a>
+              <a href="#clarity" className="hover:text-accent transition-colors">03 Clarity</a>
+              <a href="#performance" className="hover:text-accent transition-colors">04 Speed</a>
+              <a href="#accessibility" className="hover:text-accent transition-colors">05 Access</a>
+              <a href="#responsive" className="hover:text-accent transition-colors">06 Mobile</a>
+              <a href="#feedback" className="hover:text-accent transition-colors">07 Feedback</a>
+            </div>
+          </nav>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
+              <p className="text-sm font-bold uppercase tracking-widest text-accent mb-5">A practical guide for people who use the web</p>
               <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance leading-tight">
                 Web Design Principles
               </h1>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                The 7 principles of web design that actually convert users
-              </p>
-              
-            </div>
-            <div className="relative h-96 rounded-lg overflow-hidden border border-border">
-              <Image
-                src="/hero-team.jpg"
-                alt="Real team at work"
-                fill
-                className="object-cover"
-                priority
-              />
             </div>
           </div>
         </div>
@@ -354,6 +367,129 @@ export default function Home() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* Accessibility Section */}
+      <section
+        id="accessibility"
+        className={`min-h-screen flex items-center justify-center px-4 py-20 transition-opacity duration-700 ${
+          isVisible('accessibility') ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <div className="max-w-5xl w-full">
+          <div className="max-w-3xl mb-12">
+            <div className="flex items-center gap-3 text-accent mb-4">
+              <Accessibility className="w-7 h-7" aria-hidden="true" />
+              <span className="font-bold uppercase tracking-wider text-sm">Principle 5</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Accessibility Is Not Optional</h2>
+            <p className="text-xl text-muted-foreground text-balance">
+              Every interaction should remain understandable and usable for more people, on more devices, in more situations.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="bg-card border-border p-8">
+              <Keyboard className="w-8 h-8 text-accent mb-6" aria-hidden="true" />
+              <h3 className="font-bold text-lg mb-3">Keyboard Ready</h3>
+              <p className="text-muted-foreground">Every control has a logical focus order and a visible focus state.</p>
+            </Card>
+            <Card className="bg-card border-border p-8">
+              <CheckCircle2 className="w-8 h-8 text-accent mb-6" aria-hidden="true" />
+              <h3 className="font-bold text-lg mb-3">Clear Contrast</h3>
+              <p className="text-muted-foreground">Color supports meaning, but readable text never depends on color alone.</p>
+            </Card>
+            <Card className="bg-card border-border p-8">
+              <MessageCircle className="w-8 h-8 text-accent mb-6" aria-hidden="true" />
+              <h3 className="font-bold text-lg mb-3">Plain Language</h3>
+              <p className="text-muted-foreground">Short labels and direct instructions reduce cognitive load for everyone.</p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Responsive Section */}
+      <section
+        id="responsive"
+        className={`min-h-screen flex items-center justify-center px-4 py-20 bg-secondary/5 transition-opacity duration-700 ${
+          isVisible('responsive') ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <div className="max-w-5xl w-full">
+          <div className="max-w-3xl mb-12">
+            <div className="flex items-center gap-3 text-accent mb-4">
+              <Smartphone className="w-7 h-7" aria-hidden="true" />
+              <span className="font-bold uppercase tracking-wider text-sm">Principle 6</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Design for the Smallest Screen First</h2>
+            <p className="text-xl text-muted-foreground text-balance">
+              Responsive design is more than shrinking a desktop layout. It protects the main action wherever people arrive.
+            </p>
+          </div>
+
+          <Card className="bg-card border-border p-8 md:p-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+              <div>
+                <p className="text-sm text-muted-foreground mb-2">Mobile content order</p>
+                <p className="text-3xl font-bold text-accent">Value first</p>
+                <p className="text-muted-foreground mt-3">The essential message stays visible without a horizontal scroll.</p>
+              </div>
+              <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-3" aria-label="Responsive layout example">
+                <div className="border border-accent rounded-lg p-5 text-center bg-accent/10">
+                  <p className="font-bold">1</p>
+                  <p className="text-sm text-muted-foreground mt-2">Headline</p>
+                </div>
+                <div className="border border-border rounded-lg p-5 text-center">
+                  <p className="font-bold">2</p>
+                  <p className="text-sm text-muted-foreground mt-2">Proof</p>
+                </div>
+                <div className="border border-border rounded-lg p-5 text-center">
+                  <p className="font-bold">3</p>
+                  <p className="text-sm text-muted-foreground mt-2">Action</p>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Feedback Section */}
+      <section
+        id="feedback"
+        className={`min-h-screen flex items-center justify-center px-4 py-20 transition-opacity duration-700 ${
+          isVisible('feedback') ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <div className="max-w-5xl w-full">
+          <div className="max-w-3xl mb-12">
+            <div className="flex items-center gap-3 text-accent mb-4">
+              <MessageCircle className="w-7 h-7" aria-hidden="true" />
+              <span className="font-bold uppercase tracking-wider text-sm">Principle 7</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Every Action Deserves Feedback</h2>
+            <p className="text-xl text-muted-foreground text-balance">
+              Good interfaces acknowledge input, explain what happened, and make recovery feel straightforward.
+            </p>
+          </div>
+
+          <Card className="bg-card border-border p-8 md:p-10">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div>
+                <h3 className="font-bold text-lg mb-2">Was this principle useful?</h3>
+                <p className="text-muted-foreground" aria-live="polite">
+                  {feedbackSent ? 'Thanks. Your feedback was recorded.' : 'A clear response keeps people oriented.'}
+                </p>
+              </div>
+              <Button
+                type="button"
+                onClick={() => setFeedbackSent(true)}
+                className="bg-accent text-accent-foreground hover:bg-accent/90"
+              >
+                {feedbackSent ? 'Feedback sent' : 'Send feedback'}
+              </Button>
+            </div>
+          </Card>
         </div>
       </section>
 
