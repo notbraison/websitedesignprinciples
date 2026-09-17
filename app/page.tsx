@@ -354,15 +354,6 @@ export default function Home() {
             </div>
           </div>
 
-          <Card className="bg-card border-2 border-accent p-12 mt-12 text-center">
-            <h3 className="text-3xl font-bold mb-4">Ready to Stop Guessing?</h3>
-            <p className="text-lg text-muted-foreground mb-8">
-              These principles work. They&apos;ve been proven across hundreds of websites.
-            </p>
-            <Button className="bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-6 text-lg">
-              Start Your Transformation
-            </Button>
-          </Card>
         </div>
       </section>
 
