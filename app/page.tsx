@@ -260,7 +260,7 @@ export default function Home() {
         <div className="max-w-4xl w-full">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Principle 4: Performance Obsession</h2>
           <p className="text-xl text-muted-foreground mb-16 text-balance">
-            Every 100ms of latency costs you 1% of conversions. We cut the bloat.
+            Every 100ms of latency costs you 1% of conversions. Cut the bloat.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -284,7 +284,7 @@ export default function Home() {
           </div>
 
           <Card className="bg-secondary/5 border-border p-8 mt-8">
-            <h3 className="font-bold text-lg mb-4">What We Cut</h3>
+            <h3 className="font-bold text-lg mb-4">What to Cut</h3>
             <ul className="space-y-2 text-muted-foreground">
               <li className="flex items-center gap-2">
                 <span className="inline-block w-2 h-2 bg-accent rounded-full"></span>
