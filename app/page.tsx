@@ -51,7 +51,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance leading-tight">
-                The Honest Web Design Academy
+                Web Design Principles
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                 Forget everything you know about web design. We teach you the 7 principles that actually convert. No stock photos. No fluff. Just results.
@@ -371,7 +371,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-secondary/10 border-t border-border px-4 py-12">
         <div className="max-w-4xl mx-auto text-center text-muted-foreground">
-          <p>© 2024 The Honest Web Design Academy. No stock photos were used in the making of this site.</p>
+          <p> Web Design Principles.</p>
         </div>
       </footer>
     </main>
