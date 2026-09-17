@@ -56,9 +56,7 @@ export default function Home() {
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                 Forget everything you know about web design. We teach you the 7 principles that actually convert. No stock photos. No fluff. Just results.
               </p>
-              <Button className="bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-6 text-lg">
-                Learn The Principles
-              </Button>
+              
             </div>
             <div className="relative h-96 rounded-lg overflow-hidden border border-border">
               <Image
